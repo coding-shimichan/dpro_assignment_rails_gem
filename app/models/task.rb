@@ -8,4 +8,11 @@ class Task < ApplicationRecord
   # def must_start_from_today
   #   errors.add(:deadline, 'must start from today.') if deadline.present? && deadline < Date.current
   # end
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "deadline", "description", "id", "status", "title", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
